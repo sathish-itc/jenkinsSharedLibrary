@@ -1,9 +1,9 @@
 def call(buildTag) {
-    withCredentials([usernamePassword(credentialsId: 'dockeritc778', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+    withCredentials([usernamePassword(credentialsId: 'sathish33', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
         sh """
             echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
-            docker tag sampleapp:${buildTag} ${DOCKER_USER}/sampleapp:${buildTag}
-            docker push ${DOCKER_USER}/sampleapp:${buildTag}
+            docker tag sathish-itc:${buildTag} ${DOCKER_USER}/sathish-itc:${buildTag}
+            docker push ${DOCKER_USER}/sathish-itc:${buildTag}
         """
     }
 }
